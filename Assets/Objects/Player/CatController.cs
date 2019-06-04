@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class CatController : MonoBehaviour
 {
@@ -33,6 +34,8 @@ public class CatController : MonoBehaviour
 
     BGMController bgm;
 
+    float highscore;
+
     public float GetCameraPosition()
     {
         return Mathf.Max(transform.position.y, highest - deadZone);
@@ -43,6 +46,7 @@ public class CatController : MonoBehaviour
     {
         director = GameObject.Find("GameDirector").GetComponent<GameDirector>();
         bgm = GameObject.Find("BGM").GetComponent<BGMController>();
+        highscore = PlayerPrefs.GetFloat("flipthecat.highscore", 0);
     }
 
     // Update is called once per frame
@@ -96,13 +100,22 @@ public class CatController : MonoBehaviour
         transform.position = workpos;
 
         highest = Mathf.Max(highest, transform.position.y);
+        float high = Mathf.Max(highest, highscore);
         if (!deadFlag && highest - transform.position.y > deadZone)
         {
             deadFlag = true;
             bgm.Dead();
             GameObject.Find("Black").GetComponent<BlackController>().fadeOut();
             director.OnDead();
-            GameObject.Find("Score").GetComponent<Text>().text = "Score " + highest.ToString("F2") + "m";
+            if (highest > highscore)
+            {
+                PlayerPrefs.SetFloat("flipthecat.highscore", high);
+                PlayerPrefs.SetString("flipthecat.date", DateTime.Now.ToString());
+            }
+            GameObject.Find("Score").GetComponent<Text>().text = "Score " + highest.ToString("F2") + "m"
+                + "\n" + "Highscore " + high.ToString("F2");
         }
+        bool mark = highest > highscore && ((int)Time.time % 2) == 0;
+        GameObject.Find("Highscore").GetComponent<Text>().text = "Highscore " + high.ToString("F2") + "m" + (mark ? " !!" : " ");
     }
 }

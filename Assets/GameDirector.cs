@@ -18,7 +18,7 @@ public class GameDirector : MonoBehaviour
 
         set
         {
-            nowHp = value;
+            nowHp = Mathf.Clamp(value, 0, maxHp);
             hpGauge.GetComponent<Image>().fillAmount = (float)nowHp / maxHp;
         }
     }
