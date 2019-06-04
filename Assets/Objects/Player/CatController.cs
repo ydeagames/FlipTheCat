@@ -84,7 +84,7 @@ public class CatController : MonoBehaviour
 
         if (!paused)
         {
-            transform.Rotate(Vector3.forward, rotate * rotateDirection * rotateSpeed);
+            transform.Rotate(Vector3.forward, rotate * rotateDirection * rotateSpeed * 60 * Time.deltaTime);
             transform.position += velocity * 60 * Time.deltaTime;
         }
         time += Time.deltaTime;
