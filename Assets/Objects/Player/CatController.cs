@@ -102,7 +102,7 @@ public class CatController : MonoBehaviour
             bgm.Dead();
             GameObject.Find("Black").GetComponent<BlackController>().fadeOut();
             director.OnDead();
-            GameObject.Find("Score").GetComponent<Text>().text = "スコア" + highest.ToString("F2") + "m";
+            GameObject.Find("Score").GetComponent<Text>().text = "Score " + highest.ToString("F2") + "m";
         }
     }
 }
