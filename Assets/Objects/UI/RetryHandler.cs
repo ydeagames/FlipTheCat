@@ -12,7 +12,8 @@ public class RetryHandler : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+        if (Input.GetButtonDown("Cancel"))
+            OnClick();
 	}
 
     public void OnClick()

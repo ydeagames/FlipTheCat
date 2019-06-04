@@ -48,7 +48,7 @@ public class CatController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!deadFlag && time > cooldownTime && (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)))
+        if (!deadFlag && time > cooldownTime && Input.GetButtonDown("Submit"))
         {
             if (paused)
                 bgm.StartMain();
@@ -100,7 +100,7 @@ public class CatController : MonoBehaviour
         {
             deadFlag = true;
             bgm.Dead();
-            GameObject.Find("black").GetComponent<BlackController>().fadeOut();
+            GameObject.Find("Black").GetComponent<BlackController>().fadeOut();
             director.OnDead();
             GameObject.Find("Score").GetComponent<Text>().text = "スコア" + highest.ToString("F2") + "m";
         }

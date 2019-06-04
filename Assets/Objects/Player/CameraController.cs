@@ -22,7 +22,7 @@ public class CameraController : MonoBehaviour {
         Vector2 newpos = GetMove();
         Vector3 workpos = transform.position;
         workpos.y = newpos.y;
-        transform.position = workpos;
+        transform.position = Vector3.Lerp(transform.position, workpos, .9f);
 	}
 
     public Vector2 GetMove()
