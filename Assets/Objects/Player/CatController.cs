@@ -113,7 +113,7 @@ public class CatController : MonoBehaviour
                 PlayerPrefs.SetString("flipthecat.date", DateTime.Now.ToString());
             }
             GameObject.Find("Score").GetComponent<Text>().text = "Score " + highest.ToString("F2") + "m"
-                + "\n" + "Highscore " + high.ToString("F2");
+                + "\n" + "Highscore " + high.ToString("F2") + "m";
         }
         bool mark = highest > highscore && ((int)Time.time % 2) == 0;
         GameObject.Find("Highscore").GetComponent<Text>().text = "Highscore " + high.ToString("F2") + "m" + (mark ? " !!" : " ");

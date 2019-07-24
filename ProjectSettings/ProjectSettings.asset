@@ -276,6 +276,20 @@ PlayerSettings:
   openGLRequireES31AEP: 0
   m_TemplateCustomTags:
     BACKGROUND: 
+    HEADER_DATA: "<meta property=\"og:url\" content=\"https://ydeagames.github.io/FlipTheCat/\"
+      /> <meta property=\"og:type\" content=\"website\" /> <meta property=\"og:title\"
+      content=\"FlipTheCat - \u306D\u3053\u30B8\u30E3\u30F3\u30D7\u30B2\u30FC\u30E0\"
+      /> <meta property=\"og:description\" content=\"\u30BF\u30A4\u30DF\u30F3\u30B0\u3088\u304F\u30DC\u30BF\u30F3\u3092\u62BC\u3057\u3066\u306D\u3053\u3092\u30B8\u30E3\u30F3\u30D7\u3055\u305B\u308B\u30B2\u30FC\u30E0\u3067\u3059\u3002\u30CD\u30B3\u304C\u4E0A\u3092\u5411\u3044\u305F\u3089Space!\"
+      /> <meta property=\"og:site_name\" content=\"YdeaGames\" /> <meta property=\"og:image\"
+      content=\"https://i.gyazo.com/9191f7e1f82b5e0791d1709fd9d98804.png\" /> <meta
+      name=\"twitter:card\" content=\"FlipTheCat\" /> <meta name=\"twitter:site\"
+      content=\"@ydeagames\" /> <meta name=\"twitter:title\" content=\"FlipTheCat
+      - \u306D\u3053\u30B8\u30E3\u30F3\u30D7\u30B2\u30FC\u30E0\" /> <meta name=\"twitter:description\"
+      content=\"\u30BF\u30A4\u30DF\u30F3\u30B0\u3088\u304F\u30DC\u30BF\u30F3\u3092\u62BC\u3057\u3066\u306D\u3053\u3092\u30B8\u30E3\u30F3\u30D7\u3055\u305B\u308B\u30B2\u30FC\u30E0\u3067\u3059\u3002\u30CD\u30B3\u304C\u4E0A\u3092\u5411\u3044\u305F\u3089Space!\"
+      /> <meta name=\"twitter:image\" content=\"https://i.gyazo.com/9191f7e1f82b5e0791d1709fd9d98804.png\"
+      />"
+    HEAD_ATTRIBUTES: 'prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/ fb# website:
+      http://ogp.me/ns/website#"'
     SCALE_TO_FIT: 
   mobileMTRendering:
     Android: 1
