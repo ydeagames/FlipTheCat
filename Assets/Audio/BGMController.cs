@@ -37,7 +37,7 @@ public class BGMController : MonoBehaviour
         }
         if (deadding)
         {
-            audioSource.pitch = Mathf.Max(0, audioSource.pitch - pitchDownSpeed);
+            audioSource.pitch = Mathf.Max(0, audioSource.pitch - pitchDownSpeed * 60 * Time.deltaTime);
         }
     }
 

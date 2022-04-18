@@ -83,7 +83,7 @@ public class CatController : MonoBehaviour
             }
         }
         velocity.x = Mathf.Clamp(velocity.x * frictionX, -maxHorizontalSpeed, maxHorizontalSpeed);
-        velocity.y = Mathf.Clamp(velocity.y - gravity, -maxDownSpeed, maxUpSpeed);
+        velocity.y = Mathf.Clamp(velocity.y - gravity * 60 * Time.deltaTime, -maxDownSpeed, maxUpSpeed);
         rotate = Mathf.Clamp(rotate * frictionRotate, minRotationSpeed, maxRotationSpeed);
 
         if (!paused)
