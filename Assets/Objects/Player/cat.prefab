@@ -123,6 +123,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13e90816712dd56428f057d3b873b7da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
   cooldownTime: 0.3
   frictionRotate: 0.975
   gravity: 0.01
@@ -276,7 +278,7 @@ MonoBehaviour:
   bufferSizeLimit: 64
   catchupThreshold: 4
   catchupMultiplier: 0.1
-  onlySyncOnChange: 1
+  onlySyncOnChange: 0
   bufferResetMultiplier: 5
   positionSensitivity: 0.01
   rotationSensitivity: 0.01
@@ -296,6 +298,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18fda738ba8c5cf46851bcd545603d50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
   player: {fileID: 1896907523849420}
 --- !u!50 &4373950469425553000
 Rigidbody2D:
@@ -346,6 +350,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffccac242ace2c14b96ff4502ec5b205, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
   chunk: 40
   item: {fileID: 1590809991789988, guid: f592bd1f2cad21b439cbb65864f14ff6, type: 3}
   amount: 4
@@ -364,6 +370,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffccac242ace2c14b96ff4502ec5b205, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
   chunk: 40
   item: {fileID: 1726643718062972, guid: fbad21b763662b745b254322ad346448, type: 3}
   amount: 2
