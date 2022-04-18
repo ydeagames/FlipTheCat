@@ -2,29 +2,56 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjGenerator : MonoBehaviour {
-    public float chunk;
+public class ObjGenerator : MonoBehaviour
+{
+    public int chunk;
     public GameObject item;
     public int amount;
-    float top;
+    int top;
+    public float marginTop = 60;
+    public float marginBottom = 25;
+    public int seed = 0;
+
+    List<GameObject> itemObjects = new List<GameObject>();
 
     // Use this for initialization
-    void Start () {
-        top = transform.position.y;
+    void Start()
+    {
+        top = (int)transform.position.y;
     }
 
     // Update is called once per frame
-    void Update () {
-        if (transform.position.y > top + chunk)
+    void Update()
+    {
+        if (transform.position.y + marginTop > top + chunk)
         {
+            var random = new System.Random(seed + top);
+
             float left = Camera.main.ScreenToWorldPoint(Vector3.zero).x;
             float right = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, 0, 0)).x;
             for (int i = 0; i < amount; i++)
             {
                 GameObject obj = Instantiate(item);
-                obj.transform.position = new Vector3(Random.Range(left, right), top + Random.Range(0, chunk));
+                obj.transform.position = new Vector3(
+                    (float)random.NextDouble() * (right - left) + left,
+                    top + (float)random.NextDouble() * chunk
+                    );
+                itemObjects.Add(obj);
             }
             top += chunk;
+
+            itemObjects.RemoveAll(obj =>
+            {
+                if (obj == null)
+                    return true;
+
+                if (obj.transform.position.y - transform.position.y < -marginBottom)
+                {
+                    Destroy(obj);
+                    return true;
+                }
+                return false;
+            });
         }
     }
 }

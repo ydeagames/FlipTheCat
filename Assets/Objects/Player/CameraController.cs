@@ -2,31 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraController : MonoBehaviour {
+public class CameraController : MonoBehaviour
+{
+    public float targetY;
+    public float offsetY;
+
     float initialSize;
-    public GameObject player;
-    Vector2 offset;
-    CatController playerCtrl;
 
     // Use this for initialization
-    void Start () {
-        initialSize = Camera.main.orthographicSize;
-        offset = (Vector2)player.transform.position - (Vector2)transform.position;
-        playerCtrl = player.GetComponent<CatController>();
-    }
-	
-	// Update is called once per frame
-	void Update () {
-        Camera.main.orthographicSize = initialSize * ((10f/4f) / Camera.main.aspect);
-
-        Vector2 newpos = GetMove();
-        Vector3 workpos = transform.position;
-        workpos.y = newpos.y;
-        transform.position = Vector3.Lerp(transform.position, workpos, .9f);
-	}
-
-    public Vector2 GetMove()
+    void Start()
     {
-        return new Vector2(0, playerCtrl.GetCameraPosition() - offset.y);
+        initialSize = Camera.main.orthographicSize;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        Camera.main.orthographicSize = initialSize * ((10f / 4f) / Camera.main.aspect);
+
+        float targetY = GetTargetY();
+        Vector3 workpos = Camera.main.transform.position;
+        workpos.y = targetY;
+        Camera.main.transform.position = Vector3.Lerp(Camera.main.transform.position, workpos, .9f);
+    }
+
+    public float GetTargetY()
+    {
+        return targetY - offsetY;
     }
 }
