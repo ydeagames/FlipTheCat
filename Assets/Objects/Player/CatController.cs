@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
+using Mirror;
 
-public class CatController : MonoBehaviour
+public class CatController : NetworkBehaviour
 {
     public float cooldownTime = 0.3f;
     public float frictionRotate = 0.9f;
@@ -52,6 +53,9 @@ public class CatController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!isLocalPlayer)
+            return;
+
         if (!deadFlag && time > cooldownTime && Input.GetButtonDown("Submit"))
         {
             if (paused)

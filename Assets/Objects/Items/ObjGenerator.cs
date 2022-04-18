@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
 
-public class ObjGenerator : MonoBehaviour
+public class ObjGenerator : NetworkBehaviour
 {
     public int chunk;
     public GameObject item;
@@ -23,6 +24,9 @@ public class ObjGenerator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!isLocalPlayer)
+            return;
+
         if (transform.position.y + marginTop > top + chunk)
         {
             var random = new System.Random(seed + top);
